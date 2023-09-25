@@ -5,6 +5,13 @@ using System.IO;
 
 namespace RDTool.Models
 {
+    public class VMSConfig
+    {
+        /// <summary>
+        /// 服务端地址
+        /// </summary>
+        public string BaseURL { get; set; }
+    }
     public class Connections
     {
         public string Name { get; set; }
@@ -30,6 +37,8 @@ namespace RDTool.Models
         /// 连接配置
         /// </summary>
         public List<Connections> Connections { get; set; }
+
+        public VMSConfig VMS { get; set; }
         #endregion
 
         public static AppSettingSingleton Instance

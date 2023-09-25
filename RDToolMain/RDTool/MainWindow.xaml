@@ -12,6 +12,9 @@
             <TabItem Header="快速连接">
                 <usercontrols:FastConnect/>
             </TabItem>
+            <TabItem Header="虚拟机管理">
+                <usercontrols:VMSControl/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

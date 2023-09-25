@@ -1,4 +1,5 @@
 {
+  //服务器管理
   "Connections": [
     {
       "Name": "2.49",
@@ -18,5 +19,9 @@
       "Port": 3389,
       "UserNname": "administrator"
     }
-  ]
+  ],
+
+  "VMS": {
+    "BaseURL": "http://192.168.2.40:9999"
+  }
 }
