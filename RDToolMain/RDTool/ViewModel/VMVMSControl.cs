@@ -16,7 +16,7 @@ namespace RDTool.ViewModel
     public class VMVMSControl : ViewModelBase
     {
         public VMVMSItem SelectVMS { get; set; }
-        public ObservableCollection<VMVMSItem> VMSList { get; set; } = new ObservableCollection<VMVMSItem>() { new VMVMSItem { Name = "test" } };
+        public ObservableCollection<VMVMSItem> VMSList { get; set; } = new ObservableCollection<VMVMSItem>() {  };
 
         public ICommand StartCommand { get; set; }
         public ICommand StopCommand { get; set; }
