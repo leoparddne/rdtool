@@ -1,6 +1,7 @@
 ﻿using ConfigDetect.Helper;
 using HandyControl.Controls;
 using RDTool.Base;
+using RDTool.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -14,20 +15,7 @@ namespace RDTool.ViewModel
         /// <summary>
         /// 所有连接
         /// </summary>
-        public ObservableCollection<VMConnectionItem> Connections { get; set; } = new ObservableCollection<VMConnectionItem>() {
-            new VMConnectionItem{
-                Name="192.168.2.49",
-                IP="192.168.2.49",
-                Port=3389,
-                Username="administrator",
-            },
-            new VMConnectionItem{
-                Name="192.168.2.48",
-                IP="192.168.2.48",
-                Port=3389,
-                Username="administrator",
-            }
-        };
+        public ObservableCollection<VMConnectionItem> Connections { get; set; } = new ObservableCollection<VMConnectionItem>();
 
 
         public ICommand ConnectCommand { get; set; }
@@ -35,6 +23,7 @@ namespace RDTool.ViewModel
 
         public VMFastConnect()
         {
+            LoadConfig();
             ConnectCommand = new BaseCommand(p =>
             {
                 if (!(p is VMConnectionItem connectionItem))
@@ -48,6 +37,27 @@ namespace RDTool.ViewModel
                 connecting.AddParameter($"/v:{connectionItem.IP}:{connectionItem.Port}");
                 connecting.Exec();
             });
+        }
+
+        private void LoadConfig()
+        {
+            var config = AppSettingSingleton.Instance.Connections;
+            if (config == null || config.Count == 0)
+            {
+                return;
+            }
+
+
+            foreach (var item in config)
+            {
+                Connections.Add(new VMConnectionItem
+                {
+                    IP = item.IP,
+                    Name = item.Name,
+                    Port = item.Port,
+                    Username = item.Username
+                });
+            }
         }
     }
 }

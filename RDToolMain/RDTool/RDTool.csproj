@@ -15,4 +15,10 @@
     <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="107.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsetting.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

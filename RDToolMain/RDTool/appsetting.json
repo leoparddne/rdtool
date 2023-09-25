@@ -1,0 +1,22 @@
+{
+  "Connections": [
+    {
+      "Name": "2.49",
+      "IP": "192.168.2.49",
+      "Port": 3389,
+      "UserNname": "administrator"
+    },
+    {
+      "Name": "2.48",
+      "IP": "192.168.2.49",
+      "Port": 3389,
+      "UserNname": "administrator"
+    },
+    {
+      "Name": "2.225",
+      "IP": "192.168.2.225",
+      "Port": 3389,
+      "UserNname": "administrator"
+    }
+  ]
+}
