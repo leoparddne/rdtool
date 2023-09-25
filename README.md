@@ -15,7 +15,43 @@
 1.  使用环境为.net7
 
 #### 使用说明
+##### 客户端配置文件
+示例:
+```
+{
+  //服务器管理，暂时支持windows系统
+  "Connections": [
+    {
+      "Name": "2.49",
+      "IP": "192.168.2.49",
+      "Port": 3389,
+      "UserNname": "administrator"
+    },
+    {
+      "Name": "2.48",
+      "IP": "192.168.2.49",
+      "Port": 3389,
+      "UserNname": "administrator"
+    },
+    {
+      "Name": "2.225",
+      "IP": "192.168.2.225",
+      "Port": 3389,
+      "UserNname": "administrator"
+    }
+  ],
+  
+  //virtualbox主机管理使用
+  "VMS": {
+    //对应服务端地址
+    "BaseURL": "http://192.168.2.40:9999"
+  }
+}
+```
 
+2. virtualbox虚拟机管理
+需要将RDToolServer部署在virtualbox所在主机上,如需部署成系统服务,则需要配置服务运行时的身份为管理员。  
+另外需要在服务端程序中配置virtualbox安装路径中的VBoxManage.exe所在位置
 
 
 #### 参与贡献
