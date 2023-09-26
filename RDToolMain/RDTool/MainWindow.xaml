@@ -15,6 +15,9 @@
             <TabItem Header="虚拟机管理">
                 <usercontrols:VMSControl/>
             </TabItem>
+            <TabItem Header="consul工具">
+                <usercontrols:ConsulControl/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

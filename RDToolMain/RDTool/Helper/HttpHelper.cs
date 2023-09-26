@@ -49,6 +49,53 @@ namespace RDTool.Helper
         }
         #endregion
 
+        #region PUT
+        public static async Task<TResult> PutAsync<TResult>(string url, object obj = null, Dictionary<string, string> Headers = null, int timeout = 10000, bool statusErrorHandle = true, bool readBodyWhenErr = false)
+        {
+            var result = await PutAsync(url, obj, Headers, timeout, statusErrorHandle, readBodyWhenErr);
+            return JsonConvert.DeserializeObject<TResult>(result ?? string.Empty);
+        }
+        public static async Task<string> PutAsync(string url, object obj = null, Dictionary<string, string> Headers = null, int timeout = 10000, bool statusErrorHandle = true, bool readBodyWhenErr = false)
+        {
+            RestClient client;
+            RestRequest request;
+            PutInit(url, obj, Headers, timeout, out client, out request);
+
+            return await GetResult(client, request, statusErrorHandle, readBodyWhenErr);
+        }
+
+        private static void PutInit(string url, object obj, Dictionary<string, string> Headers, int timeout, out RestClient client, out RestRequest request)
+        {
+            client = new RestClient(new RestClientOptions
+            {
+                Timeout = timeout
+            });
+            var setting = new JsonSerializerSettings()
+            {
+                ContractResolver = null,//new CamelCasePropertyNamesContractResolver(),
+                DefaultValueHandling = DefaultValueHandling.Include,
+                TypeNameHandling = TypeNameHandling.None,
+                NullValueHandling = NullValueHandling.Ignore,
+                Formatting = Formatting.None,
+                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+            };
+            client.UseNewtonsoftJson(setting);
+
+
+            request = new RestRequest(url, Method.Put);
+            //request.AddHeader("Content-Type", "application/json");
+            request.Timeout = timeout;
+
+            GenerateHeader(request, Headers);
+
+            if (obj != null)
+            {
+                request.AddBody(obj);
+                //request.AddJsonBody(obj);
+            }
+        }
+        #endregion
+
         #region Post
         public static async Task<TResult> PostAsync<TResult>(string url, object obj = null, Dictionary<string, string> Headers = null, int timeout = 10000, bool statusErrorHandle = true, bool readBodyWhenErr = false)
         {
@@ -170,4 +217,3 @@ namespace RDTool.Helper
         #endregion
     }
 }
-
