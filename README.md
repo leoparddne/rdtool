@@ -3,7 +3,8 @@
 #### 介绍
 研发过程中所需要的工具。
 1. 支持多台windows服务器快速连接，提供服务器列表，双击即可连接服务器
-2. virtualbox主机管理 - 需要部署RDTool-Server
+2. virtualbox主机管理 - 需要部署RDTool-Server3
+3. 支持consul KV配置
 
 
 #### 软件架构
