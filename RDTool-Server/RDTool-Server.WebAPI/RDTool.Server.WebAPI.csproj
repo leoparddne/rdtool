@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>48659119-f504-47cb-bf9e-fd42e6667b17</UserSecretsId>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Version>V1.0.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
