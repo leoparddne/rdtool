@@ -24,9 +24,9 @@
                             <TextBlock Text="{Binding Port}" VerticalAlignment="Center"/>
                             <TextBlock Text="{Binding Username}" VerticalAlignment="Center" Margin="8 0"/>-->
                             <Button Content="开机" Command="{Binding DataContext.StartCommand,RelativeSource={RelativeSource AncestorType=UserControl}}" 
-                                    CommandParameter="{Binding .}" Margin="8 0" IsEnabled="{Binding CanStart}"/>
+                                    CommandParameter="{Binding .}" Background="Green" Margin="8 0" IsEnabled="{Binding CanStart}"/>
                             <Button Content="关机" Command="{Binding DataContext.StopCommand,RelativeSource={RelativeSource AncestorType=UserControl}}" 
-                                    CommandParameter="{Binding .}" IsEnabled="{Binding ISRunning}"/>
+                                    CommandParameter="{Binding .}" Background="Red" IsEnabled="{Binding ISRunning}"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
